@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="cupcake">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,9 +33,8 @@
     mixpanel.init("e38ac18bc2aadc3478a7d8c7aa6c4a29", {
       debug: true,
       loaded: function(mixpanel) {
-        // Track page view
-        mixpanel.track("Page View", {
-          page: window.location.pathname
+        mixpanel.track("Page Loaded", {
+          page: "landing"
         });
       }
     });
@@ -60,71 +59,80 @@
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
-      <li><a class="btn btn-ghost">Docs</a></li>
-      <li><a class="btn btn-ghost">Pricing</a></li>
       <li><a class="btn btn-primary">Get Started</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero min-h-screen hero-gradient">
-  <div class="hero-content text-center max-w-6xl">
-    <div>
-      <h1 class="text-7xl font-bold mb-8 tracking-tight">
-        You code. We cloud.
-      </h1>
-      <p class="text-xl mb-4 text-gray-700 max-w-3xl mx-auto">
-        Deploy your Django app in seconds, just run
-      </p>
-      <div class="mockup-code bg-gray-900 text-green-400 max-w-2xl mx-auto mb-8 text-left">
-        <pre><code>django-cloud deploy</code></pre>
-      </div>
-      <p class="text-lg mb-12 text-gray-600 max-w-4xl mx-auto">
-        With a single command, skip the hassle and get your app running in the cloud effortlessly.
-      </p>
-      <p class="text-lg mb-16 text-gray-600 max-w-4xl mx-auto">
-        Django Cloud streamlines the process of building, deploying, and accessing a Django application with minimal effort.
-      </p>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
-        <!-- Code Example -->
-        <div class="text-left">
-          <div class="mockup-code bg-gray-900 text-gray-300">
-            <pre><code><span class="text-blue-400">from</span> <span class="text-yellow-300">django.http</span> <span class="text-blue-400">import</span> JsonResponse</code></pre>
-            <pre><code><span class="text-blue-400">from</span> <span class="text-yellow-300">django.urls</span> <span class="text-blue-400">import</span> path</code></pre>
-            <pre><code></code></pre>
-            <pre><code><span class="text-blue-400">def</span> <span class="text-green-400">hello_world</span>(request):</code></pre>
-            <pre><code>    <span class="text-blue-400">return</span> JsonResponse({<span class="text-orange-400">"message"</span>: <span class="text-orange-400">"Hello World"</span>})</code></pre>
-            <pre><code></code></pre>
-            <pre><code>urlpatterns = [path(<span class="text-orange-400">""</span>, hello_world)]</code></pre>
-          </div>
-        </div>
-        
-        <!-- Terminal + Browser -->
-        <div class="text-left space-y-4">
-          <div class="mockup-code bg-gray-900 text-green-400">
-            <pre data-prefix="myapp on main via 🐍 3.12 ✨ (venv)"><code></code></pre>
-            <pre data-prefix="❯"><code>django-cloud deploy</code></pre>
-          </div>
-          
-          <div class="mockup-browser bg-base-300 border">
-            <div class="mockup-browser-toolbar">
-              <div class="input">https://myapp.djangocloud.dev</div>
-            </div>
-            <div class="bg-base-200 flex justify-center px-4 py-16">
-              <code class="text-lg">{"message": "Hello World"}</code>
-            </div>
-          </div>
-        </div>
-      </div>
+<section class="hero min-h-screen bg-base-200 py-20">
+  <div class="hero-content flex-col lg:flex-row max-w-7xl mx-auto gap-12">
+    
+    <!-- Animated Code Mockup -->
+    <div class="mockup-code bg-gray-900 text-green-400 w-full lg:w-2/3 p-6 overflow-x-auto h-[500px]">
+      <pre><code id="deploy-log"></code></pre>
     </div>
+
+    <!-- Hero Text -->
+    <div class="flex-1 text-center lg:text-left">
+      <h1 class="text-5xl font-bold mb-4">Deploy Django Apps with 1 Command</h1>
+      <p class="py-6 text-lg text-base-content/80">
+        Skip the hassle of manual server setup. Provision web servers, Redis, and background workers automatically, apply migrations, set up SSL, and monitor your app — all with a single command.
+      </p>
+      <button class="btn btn-primary">Get Started</button>
+    </div>
+
   </div>
 </section>
 
+<script>
+const logLines = [
+  "$ django-cloud deploy myapp --env production",
+  "🚀 Starting deployment...",
+  "📦 Provisioning web servers (2x small)",
+  "🔧 Setting up Redis cache (1 node)",
+  "⚡ Starting 3 background workers",
+  "🔄 Applying migrations...",
+  "📂 Collecting static files...",
+  "🔐 Setting up SSL certificates...",
+  "📊 Initializing monitoring & logging...",
+  "✅ Deployment complete!",
+  "🌐 App live at: https://myapp.djangocloud.dev",
+  "💡 Tip: Use `django-cloud scale web --nodes 4` to scale instantly",
+  "💡 Tip: Use `django-cloud logs myapp` to view live logs",
+  "💡 Tip: Use `django-cloud rollback myapp --version v1.2` for instant rollback"
+];
+
+const logContainer = document.getElementById("deploy-log");
+let lineIndex = 0;
+
+function typeLine(line, i = 0) {
+  if (i < line.length) {
+    logContainer.innerHTML += line[i];
+    setTimeout(() => typeLine(line, i + 1), 20); // typing speed
+  } else {
+    logContainer.innerHTML += "<br>";
+    lineIndex++;
+    if (lineIndex < logLines.length) {
+      setTimeout(() => typeLine(logLines[lineIndex]), 300); // delay between lines
+    } else {
+      // scroll to bottom after animation
+      logContainer.parentElement.scrollTop = logContainer.scrollHeight;
+    }
+  }
+}
+
+// start typing animation
+typeLine(logLines[lineIndex]);
+</script>
+
+
+
+
+
 <!-- Features Section -->
-<section class="py-20 bg-base-100">
+<section class="py-32 bg-base-100">
   <div class="max-w-6xl mx-auto px-4">
+    <h1 class="text-5xl font-bold text-center mb-8">Platform Features</h1>
     <p class="text-center text-lg text-gray-600 mb-16 max-w-4xl mx-auto">
       Django Cloud is designed to grow with your needs. Whether you're a solo developer or part of a team, 
       you can easily manage your applications and collaborate effectively.
@@ -195,9 +203,10 @@
   </div>
 </section>
 
-<!-- Process Section -->
-<section class="py-20 bg-gray-50">
+<!-- How It Works Section -->
+<section class="py-32 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4">
+    <h1 class="text-5xl font-bold text-center mb-8">How It Works</h1>
     <p class="text-center text-lg text-gray-600 mb-16 max-w-4xl mx-auto">
       Django Cloud streamlines the process of building, deploying, and accessing a Django application with minimal effort.
     </p>
@@ -242,15 +251,16 @@
   </div>
 </section>
 
-<!-- Testimonials Section -->
-<section class="py-20 bg-base-100">
+<!-- What People Are Saying 
+<section class="py-32 bg-base-100">
   <div class="max-w-6xl mx-auto px-4">
-    <p class="text-center text-lg text-gray-600 mb-16 max-w-4xl mx-auto">
+    <h1 class="text-5xl font-bold text-center mb-8">What People Are Saying</h1>
+    <p class="text-center text-lg text-gray-600 mb-8 max-w-4xl mx-auto">
       Django Cloud is built by developers who understand the Django ecosystem, used by developers everywhere, 
       from the smallest startups to the largest tech companies.
     </p>
     
-    <p class="text-center text-lg font-semibold text-gray-800 mb-12">
+    <p class="text-center text-lg font-semibold text-gray-800 mb-16">
       Supported by the Python and Django communities, angels, and advisors
     </p>
     
@@ -321,11 +331,12 @@
     </div>
   </div>
 </section>
+-->
 
-<!-- Waitlist Section -->
-<section class="py-20 bg-gray-50">
+<!-- Get Started -->
+<section class="py-32 bg-gray-50">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-4xl font-bold mb-8">Ready to deploy your Django apps effortlessly?</h2>
+    <h1 class="text-5xl font-bold mb-8">Get Started</h1>
     <p class="text-xl text-gray-600 mb-12">
       Join the waitlist to be among the first to experience one-command Django deployments.
     </p>
