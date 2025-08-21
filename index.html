@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Django Cloud — Deploy scalable Django Apps with 1 command</title>
+  <title>Django Cloud — You code. We cloud.</title>
 
   <!-- HTML Meta Tags -->
-  <meta name="description" content="Django Cloud lets you deploy fully scalable Django applications with a single command. Spin up web, Redis, and worker services automatically, and manage your apps effortlessly in the cloud.">
+  <meta name="description" content="Deploy your Django app in seconds, just run django-cloud deploy. With a single command, skip the hassle and get your app running in the cloud effortlessly.">
 
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://djangocloud.dev">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Django Cloud – One-command Django deployments in the cloud">
-  <meta property="og:description" content="Deploy fully scalable Django applications instantly. Manage web, Redis, and background workers without hassle, all from a simple interface.">
+  <meta property="og:title" content="Django Cloud — You code. We cloud.">
+  <meta property="og:description" content="Deploy your Django app in seconds, just run django-cloud deploy. With a single command, skip the hassle and get your app running in the cloud effortlessly.">
   <meta property="og:image" content="https://djangocloud.dev/images/large-preview.png">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="djangocloud.dev">
   <meta property="twitter:url" content="https://djangocloud.dev">
-  <meta name="twitter:title" content="Django Cloud – One-command Django deployments in the cloud">
-  <meta property="twitter:description" content="Deploy fully scalable Django applications instantly. Manage web, Redis, and background workers without hassle, all from a simple interface.">
+  <meta name="twitter:title" content="Django Cloud — You code. We cloud.">
+  <meta name="twitter:description" content="Deploy your Django app in seconds, just run django-cloud deploy. With a single command, skip the hassle and get your app running in the cloud effortlessly.">
   <meta name="twitter:image" content="https://djangocloud.dev/images/large-preview.png">
 
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -30,476 +30,338 @@
   <!-- Mixpanel -->
   <script type="text/javascript">
     (function(c,a){if(!a.__SV){var b=window;try{var d,m,j,k=b.location,f=k.hash;d=function(a,b){return(m=a.match(RegExp(b+"=([^&]*)")))?m[1]:null};f&&d(f,"state")&&(j=JSON.parse(decodeURIComponent(d(f,"state"))),"mpeditor"===j.action&&(b.sessionStorage.setItem("_mpcehash",f),history.replaceState(j.desiredHash||"",c.title,k.pathname+k.search)))}catch(n){}var l,h;window.mixpanel=a;a._i=[];a.init=function(b,d,g){function c(b,i){var a=i.split(".");2==a.length&&(b=b[a[0]],i=a[1]);b[i]=function(){b.push([i].concat(Array.prototype.slice.call(arguments,0)))}}var e=a;"undefined"!==typeof g?e=a[g]=[]:g="mixpanel";e.people=e.people||[];e.toString=function(b){var a="mixpanel";"mixpanel"!==g&&(a+="."+g);b||(a+=" (stub)");return a};e.people.toString=function(){return e.toString(1)+".people (stub)"};l="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");for(h=0;h<l.length;h++)c(e,l[h]);a._i.push([b,d,g])};a.__SV=1.2;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===c.location.protocol&&"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d)}})(document,window.mixpanel||[]);
-    mixpanel.init("e38ac18bc2aadc3478a7d8c7aa6c4a29");
+    mixpanel.init("e38ac18bc2aadc3478a7d8c7aa6c4a29", {
+      debug: true,
+      loaded: function(mixpanel) {
+        // Track page view
+        mixpanel.track("Page View", {
+          page: window.location.pathname
+        });
+      }
+    });
   </script>
 
   <style>
-    .gradient-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
-    
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .glow-effect {
-      box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
-    }
-    
-    .hover-lift {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .hover-lift:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    .floating {
-      animation: float 3s ease-in-out infinite;
+    .hero-gradient {
+      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
     }
   </style>
 </head>
-<body class="bg-base-100 text-base-content overflow-x-hidden">
+
+<body class="bg-base-100">
 
 <!-- Navbar -->
-<header class="navbar bg-base-100/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-base-300/20">
-    <div class="navbar-start">
-      <a class="btn btn-ghost text-xl font-bold">
-        <span class="text-3xl">☁️</span>
-        <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Django Cloud
-        </span>
-      </a>
-    </div>
-    <div class="navbar-end gap-2">
-      <a href="#features" class="btn btn-ghost">Features</a>
-      <a href="#pricing" class="btn btn-ghost">Pricing</a>
-      <a href="#waitlist" class="btn btn-primary glow-effect">Join Waitlist</a>
-    </div>
-</header>
+<nav class="navbar bg-base-100 px-4 py-2">
+  <div class="flex-1">
+    <a class="text-xl font-bold">Django Cloud</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <li><a class="btn btn-ghost">Docs</a></li>
+      <li><a class="btn btn-ghost">Pricing</a></li>
+      <li><a class="btn btn-primary">Get Started</a></li>
+    </ul>
+  </div>
+</nav>
 
 <!-- Hero Section -->
-<section class="hero min-h-screen relative overflow-hidden">
-  <div class="absolute inset-0 gradient-bg opacity-10"></div>
-  <div class="hero-content flex-col lg:flex-row-reverse max-w-7xl mx-auto gap-12 relative z-10 py-20">
-    <div class="flex-1 floating">
-      <div class="mockup-code glass-effect glow-effect">
-        <pre data-prefix="$" class="text-success"><code>django-cloud deploy myapp --env production</code></pre>
-        <pre data-prefix=">" class="text-warning"><code>🚀 Deploying Django app...</code></pre>
-        <pre data-prefix=">" class="text-info"><code>📦 Provisioning web servers (2x)</code></pre>
-        <pre data-prefix=">" class="text-info"><code>🔧 Setting up Redis cache</code></pre>
-        <pre data-prefix=">" class="text-info"><code>⚡ Starting background workers</code></pre>
-        <pre data-prefix=">" class="text-success"><code>✅ Deploy complete! Live at myapp.djangocloud.dev</code></pre>
-      </div>
-    </div>
-    <div class="flex-1 text-center lg:text-left">
-      <h1 class="text-6xl lg:text-7xl font-bold mb-6">
-        <span class="text-5xl">☁️</span><br>
-        <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-          Django Cloud
-        </span>
+<section class="hero min-h-screen hero-gradient">
+  <div class="hero-content text-center max-w-6xl">
+    <div>
+      <h1 class="text-7xl font-bold mb-8 tracking-tight">
+        You code. We cloud.
       </h1>
-      <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-base-content/90">
-        Deploy scalable Django apps with <span class="text-primary">1 command</span>
-      </h2>
-      <p class="text-xl mb-8 text-base-content/80 max-w-2xl">
-        Skip the DevOps complexity. Spin up web servers, Redis, and background workers automatically. 
-        Scale each service independently and deploy updates — all without touching server configs.
+      <p class="text-xl mb-4 text-gray-700 max-w-3xl mx-auto">
+        Deploy your Django app in seconds, just run
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-        <a href="#waitlist" class="btn btn-primary btn-lg glow-effect hover-lift">
-          Join the Waitlist
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-          </svg>
-        </a>
-        <a href="#features" class="btn btn-outline btn-lg hover-lift">Learn More</a>
+      <div class="mockup-code bg-gray-900 text-green-400 max-w-2xl mx-auto mb-8 text-left">
+        <pre><code>django-cloud deploy</code></pre>
+      </div>
+      <p class="text-lg mb-12 text-gray-600 max-w-4xl mx-auto">
+        With a single command, skip the hassle and get your app running in the cloud effortlessly.
+      </p>
+      <p class="text-lg mb-16 text-gray-600 max-w-4xl mx-auto">
+        Django Cloud streamlines the process of building, deploying, and accessing a Django application with minimal effort.
+      </p>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
+        <!-- Code Example -->
+        <div class="text-left">
+          <div class="mockup-code bg-gray-900 text-gray-300">
+            <pre><code><span class="text-blue-400">from</span> <span class="text-yellow-300">django.http</span> <span class="text-blue-400">import</span> JsonResponse</code></pre>
+            <pre><code><span class="text-blue-400">from</span> <span class="text-yellow-300">django.urls</span> <span class="text-blue-400">import</span> path</code></pre>
+            <pre><code></code></pre>
+            <pre><code><span class="text-blue-400">def</span> <span class="text-green-400">hello_world</span>(request):</code></pre>
+            <pre><code>    <span class="text-blue-400">return</span> JsonResponse({<span class="text-orange-400">"message"</span>: <span class="text-orange-400">"Hello World"</span>})</code></pre>
+            <pre><code></code></pre>
+            <pre><code>urlpatterns = [path(<span class="text-orange-400">""</span>, hello_world)]</code></pre>
+          </div>
+        </div>
+        
+        <!-- Terminal + Browser -->
+        <div class="text-left space-y-4">
+          <div class="mockup-code bg-gray-900 text-green-400">
+            <pre data-prefix="myapp on main via 🐍 3.12 ✨ (venv)"><code></code></pre>
+            <pre data-prefix="❯"><code>django-cloud deploy</code></pre>
+          </div>
+          
+          <div class="mockup-browser bg-base-300 border">
+            <div class="mockup-browser-toolbar">
+              <div class="input">https://myapp.djangocloud.dev</div>
+            </div>
+            <div class="bg-base-200 flex justify-center px-4 py-16">
+              <code class="text-lg">{"message": "Hello World"}</code>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Features Section -->
-<section id="features" class="py-20 bg-base-200/30">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-5xl font-bold mb-6">Why Django Cloud?</h2>
-      <p class="text-xl text-base-content/70 max-w-3xl mx-auto">
-        Built for developers who want to focus on code, not infrastructure. Deploy faster, scale smarter.
-      </p>
-    </div>
-    
-    <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
-      <div class="space-y-8">
-        <div class="card bg-base-100 shadow-xl hover-lift glass-effect">
-          <div class="card-body">
-            <h3 class="card-title text-2xl">
-              <span class="text-3xl">⚡</span>
-              Lightning Fast Deployment
-            </h3>
-            <p class="text-base-content/80">
-              From zero to production in under 5 minutes. No manual server setup, no configuration headaches.
-            </p>
-          </div>
-        </div>
-        
-        <div class="card bg-base-100 shadow-xl hover-lift glass-effect">
-          <div class="card-body">
-            <h3 class="card-title text-2xl">
-              <span class="text-3xl">🔧</span>
-              Independent Scaling
-            </h3>
-            <p class="text-base-content/80">
-              Scale web servers, Redis, and workers separately based on your app's real needs.
-            </p>
-          </div>
-        </div>
-        
-        <div class="card bg-base-100 shadow-xl hover-lift glass-effect">
-          <div class="card-body">
-            <h3 class="card-title text-2xl">
-              <span class="text-3xl">🛡️</span>
-              Secure & Transparent
-            </h3>
-            <p class="text-base-content/80">
-              Your apps stay yours. No hidden charges, no data sharing. Full control over your environment.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="floating">
-        <div class="mockup-browser bg-base-300 shadow-2xl glow-effect">
-          <div class="mockup-browser-toolbar">
-            <div class="input">https://dashboard.djangocloud.dev</div>
-          </div>
-          <div class="bg-base-200 px-6 py-8">
-            <div class="space-y-4">
-              <div class="flex justify-between items-center">
-                <span class="font-semibold">myapp-production</span>
-                <div class="badge badge-success">Live</div>
-              </div>
-              <div class="grid grid-cols-3 gap-4 text-sm">
-                <div class="stat bg-base-100 rounded-lg p-3">
-                  <div class="stat-title text-xs">Web Servers</div>
-                  <div class="stat-value text-lg text-primary">2</div>
-                </div>
-                <div class="stat bg-base-100 rounded-lg p-3">
-                  <div class="stat-title text-xs">Redis</div>
-                  <div class="stat-value text-lg text-success">1</div>
-                </div>
-                <div class="stat bg-base-100 rounded-lg p-3">
-                  <div class="stat-title text-xs">Workers</div>
-                  <div class="stat-value text-lg text-warning">3</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Code Examples Section -->
 <section class="py-20 bg-base-100">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold mb-6">Simple Configuration</h2>
-      <p class="text-xl text-base-content/70">Configure everything in your Django settings or with simple commands</p>
-    </div>
+  <div class="max-w-6xl mx-auto px-4">
+    <p class="text-center text-lg text-gray-600 mb-16 max-w-4xl mx-auto">
+      Django Cloud is designed to grow with your needs. Whether you're a solo developer or part of a team, 
+      you can easily manage your applications and collaborate effectively.
+    </p>
     
-    <div class="grid gap-8 lg:grid-cols-2">
-      <div class="card bg-base-200 shadow-xl hover-lift">
-        <div class="card-header px-6 pt-6">
-          <h3 class="text-lg font-semibold">Settings Configuration</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="text-center p-6">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
         </div>
-        <div class="card-body pt-0">
-          <div class="mockup-code text-sm">
-            <pre><code># settings.py
-DJANGO_CLOUD = {
-  "web": {"nodes": 2, "size": "small"},
-  "redis": {"size": "medium"},
-  "worker": {"nodes": 2},
-  "domains": ["myapp.djangocloud.dev"]
-}</code></pre>
-          </div>
-        </div>
+        <h3 class="text-lg font-semibold mb-2">Set Environment Variables</h3>
+        <p class="text-gray-600">Easily configure and manage environment variables for your applications.</p>
       </div>
 
-      <div class="card bg-base-200 shadow-xl hover-lift">
-        <div class="card-header px-6 pt-6">
-          <h3 class="text-lg font-semibold">Dynamic Scaling</h3>
+      <div class="text-center p-6">
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
         </div>
-        <div class="card-body pt-0">
-          <div class="mockup-code text-sm">
-            <pre><code># Scale on demand
-$ django-cloud scale web --nodes 4
-$ django-cloud scale worker --nodes 3
+        <h3 class="text-lg font-semibold mb-2">Deploy Multiple Apps</h3>
+        <p class="text-gray-600">Deploy and manage multiple applications with ease, all in one platform.</p>
+      </div>
 
-# Deploy updates
-$ django-cloud deploy myapp</code></pre>
-          </div>
+      <div class="text-center p-6">
+        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
         </div>
+        <h3 class="text-lg font-semibold mb-2">Invite Teammates</h3>
+        <p class="text-gray-600">Collaborate seamlessly with your team on your projects.</p>
+      </div>
+
+      <div class="text-center p-6">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Add Custom Domains</h3>
+        <p class="text-gray-600">Configure custom domains for your applications.</p>
+      </div>
+
+      <div class="text-center p-6">
+        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Integrate Services</h3>
+        <p class="text-gray-600">Connect other services such as databases effortlessly.</p>
+      </div>
+
+      <div class="text-center p-6">
+        <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Observability</h3>
+        <p class="text-gray-600">Monitor your applications with built-in observability tools for better insights.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Comparison Section -->
-<section class="py-20 bg-base-200/30">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold mb-6">Django Cloud vs Manual Setup</h2>
-      <p class="text-xl text-base-content/70">See why developers choose Django Cloud</p>
-    </div>
+<!-- Process Section -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <p class="text-center text-lg text-gray-600 mb-16 max-w-4xl mx-auto">
+      Django Cloud streamlines the process of building, deploying, and accessing a Django application with minimal effort.
+    </p>
     
-    <div class="card bg-base-100 shadow-2xl overflow-hidden">
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full">
-          <thead class="bg-primary text-primary-content">
-            <tr>
-              <th class="text-lg">Method</th>
-              <th class="text-lg">Setup Time</th>
-              <th class="text-lg">Scaling</th>
-              <th class="text-lg">Maintenance</th>
-              <th class="text-lg">Cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="hover">
-              <td><strong class="text-primary">🚀 Django Cloud</strong></td>
-              <td><span class="badge badge-success">< 5 minutes</span></td>
-              <td><span class="badge badge-success">One command</span></td>
-              <td><span class="badge badge-success">Automated</span></td>
-              <td><span class="badge badge-success">Transparent</span></td>
-            </tr>
-            <tr class="hover">
-              <td><strong class="text-base-content/70">🔧 Manual Setup</strong></td>
-              <td><span class="badge badge-error">2-4 hours</span></td>
-              <td><span class="badge badge-warning">Complex</span></td>
-              <td><span class="badge badge-error">Manual</span></td>
-              <td><span class="badge badge-warning">Hidden fees</span></td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center">
+        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Deploying your app</h3>
+      </div>
+
+      <div class="text-center">
+        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Autoscaling based on requests to meet demand</h3>
+      </div>
+
+      <div class="text-center">
+        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Autoscaling including down to zero and up again to save on costs</h3>
+      </div>
+
+      <div class="text-center">
+        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">HTTPS encryption by default</h3>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Pricing Section -->
-<section id="pricing" class="py-20 bg-base-100">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-5xl font-bold mb-6">Choose Your Plan</h2>
-      <p class="text-xl text-base-content/70">Start simple, scale when you need it</p>
-    </div>
+<!-- Testimonials Section -->
+<section class="py-20 bg-base-100">
+  <div class="max-w-6xl mx-auto px-4">
+    <p class="text-center text-lg text-gray-600 mb-16 max-w-4xl mx-auto">
+      Django Cloud is built by developers who understand the Django ecosystem, used by developers everywhere, 
+      from the smallest startups to the largest tech companies.
+    </p>
     
-    <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <!-- Basic Plan -->
-      <div class="card bg-base-200 shadow-xl hover-lift">
-        <div class="card-body p-8">
-          <div class="text-center mb-8">
-            <h3 class="text-3xl font-bold mb-2">Basic</h3>
-            <p class="text-base-content/70 mb-4">Perfect for getting started</p>
-            <div class="text-4xl font-bold text-primary mb-2">Simple</div>
-            <p class="text-sm text-base-content/60">Pay-as-you-use pricing</p>
-          </div>
-          
-          <div class="space-y-4 mb-8">
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>1 Django service per deployment</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Vertical scaling only (CPU/RAM)</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>30 days of logging & monitoring</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Basic SSL & domain management</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Email support</span>
-            </div>
-          </div>
-          
-          <a href="#waitlist" class="btn btn-outline btn-lg w-full hover-lift">
-            Start Basic
-          </a>
-        </div>
-      </div>
-      
-      <!-- Premium Plan -->
-      <div class="card bg-gradient-to-br from-primary/10 to-secondary/10 shadow-2xl hover-lift relative glow-effect">
-        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <div class="badge badge-primary badge-lg px-4 py-3 font-semibold">Most Popular</div>
-        </div>
-        <div class="card-body p-8">
-          <div class="text-center mb-8">
-            <h3 class="text-3xl font-bold mb-2">Premium</h3>
-            <p class="text-base-content/70 mb-4">Full-featured deployment platform</p>
-            <div class="text-4xl font-bold text-primary mb-2">Flexible</div>
-            <p class="text-sm text-base-content/60">Transparent cluster-based pricing</p>
-          </div>
-          
-          <div class="space-y-4 mb-8">
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span><strong>Multiple services</strong> (web, Redis, workers)</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span><strong>Auto-scaling</strong> up and down based on load</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span><strong>Custom alerts</strong> for CPU, RAM, and performance</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span><strong>90 days</strong> of advanced logging & analytics</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Independent service scaling</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-success mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Priority support & dedicated assistance</span>
-            </div>
-          </div>
-          
-          <a href="#waitlist" class="btn btn-primary btn-lg w-full glow-effect hover-lift">
-            Start Premium
-          </a>
-        </div>
-      </div>
-    </div>
+    <p class="text-center text-lg font-semibold text-gray-800 mb-12">
+      Supported by the Python and Django communities, angels, and advisors
+    </p>
     
-    <div class="text-center mt-12">
-      <p class="text-base-content/60 mb-4">
-        💡 <strong>Not sure which plan?</strong> Start with Basic and upgrade anytime.
-      </p>
-      <p class="text-sm text-base-content/50">
-        All plans include free SSL certificates, automatic backups, and 99.9% uptime SLA
-      </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white p-8 rounded-lg shadow-sm border">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+            JS
+          </div>
+          <div>
+            <h4 class="font-semibold">Jacob Kaplan-Moss</h4>
+            <p class="text-gray-600">Co-creator of Django</p>
+          </div>
+        </div>
+        <p class="text-gray-700">
+          "Django has always been about making web development easier for developers. 
+          Django Cloud continues that mission by making deployment just as simple as writing the code."
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-lg shadow-sm border">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+            AH
+          </div>
+          <div>
+            <h4 class="font-semibold">Adrian Holovaty</h4>
+            <p class="text-gray-600">Co-creator of Django</p>
+          </div>
+        </div>
+        <p class="text-gray-700">
+          "The impact of Django has been undeniable in making web development more accessible. 
+          Super excited to see this launched, and to give Django developers an easy path to deployment."
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-lg shadow-sm border">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+            KB
+          </div>
+          <div>
+            <h4 class="font-semibold">Katie Bell</h4>
+            <p class="text-gray-600">Django Fellow</p>
+          </div>
+        </div>
+        <p class="text-gray-700">
+          "Django Cloud makes deployment as straightforward as Django makes development. 
+          It's the natural next step for Django developers who want to focus on building great apps."
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-lg shadow-sm border">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+            TC
+          </div>
+          <div>
+            <h4 class="font-semibold">Tom Christie</h4>
+            <p class="text-gray-600">Creator of Django REST Framework</p>
+          </div>
+        </div>
+        <p class="text-gray-700">
+          "Building great APIs with Django has never been easier, and now deploying them is just as simple. 
+          Django Cloud removes all the friction from going from development to production."
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Waitlist Section -->
-<section id="waitlist" class="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="text-5xl font-bold mb-6">Ready to Deploy Faster?</h2>
-    <p class="text-xl mb-10 text-base-content/80">
-      Join the waitlist and be among the first to experience one-command Django deployments.
+<section class="py-20 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold mb-8">Ready to deploy your Django apps effortlessly?</h2>
+    <p class="text-xl text-gray-600 mb-12">
+      Join the waitlist to be among the first to experience one-command Django deployments.
     </p>
     
-    <div class="card bg-base-100 shadow-2xl max-w-2xl mx-auto glass-effect">
-      <div class="card-body">
-        <form id="waitlist-form" class="space-y-6">
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text text-lg">Email Address</span>
-            </label>
-            <input 
-              type="email" 
-              id="email"
-              placeholder="your@email.com" 
-              class="input input-bordered input-lg w-full focus:input-primary" 
-              required
-            />
-          </div>
-          
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">What type of Django apps do you build?</span>
-            </label>
-            <select id="app-type" class="select select-bordered w-full focus:select-primary">
-              <option disabled selected>Choose one...</option>
-              <option value="saas">SaaS Applications</option>
-              <option value="ecommerce">E-commerce Sites</option>
-              <option value="api">API Backends</option>
-              <option value="cms">Content Management</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          
-          <button 
-            type="submit" 
-            class="btn btn-primary btn-lg w-full glow-effect hover-lift"
-            id="submit-btn"
-          >
-            <span id="submit-text">Join the Waitlist</span>
-            <span id="loading" class="loading loading-spinner loading-sm hidden"></span>
-          </button>
-        </form>
-        
-        <div id="success-message" class="alert alert-success mt-6 hidden">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <span>Thanks for joining! We'll be in touch soon.</span>
-        </div>
+    <form id="waitlist-form" class="max-w-md mx-auto">
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input 
+          type="email" 
+          id="email"
+          placeholder="your@email.com" 
+          class="input input-bordered flex-1" 
+          required
+        />
+        <button 
+          type="submit" 
+          class="btn btn-primary px-8"
+          id="submit-btn"
+        >
+          <span id="submit-text">Join Waitlist</span>
+          <span id="loading" class="loading loading-spinner loading-sm hidden"></span>
+        </button>
       </div>
+    </form>
+    
+    <div id="success-message" class="alert alert-success mt-8 max-w-md mx-auto hidden">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <span>Thanks for joining! We'll be in touch soon.</span>
     </div>
     
-    <p class="text-sm text-base-content/60 mt-6">
+    <p class="text-sm text-gray-500 mt-6">
       No spam, ever. Unsubscribe with one click.
     </p>
   </div>
 </section>
-
-<!-- Footer -->
-<footer class="footer footer-center bg-base-300 text-base-content p-10">
-  <aside>
-    <div class="flex items-center gap-2 text-2xl font-bold mb-4">
-      <span class="text-4xl">☁️</span>
-      <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-        Django Cloud
-      </span>
-    </div>
-    <p class="text-base-content/70">Deploy Django apps with confidence</p>
-    <p class="text-sm text-base-content/50">Copyright © 2025 - All rights reserved</p>
-  </aside>
-</footer>
 
 <script>
 document.getElementById('waitlist-form').addEventListener('submit', function(e) {
@@ -510,7 +372,6 @@ document.getElementById('waitlist-form').addEventListener('submit', function(e) 
   const loading = document.getElementById('loading');
   const successMessage = document.getElementById('success-message');
   const email = document.getElementById('email').value;
-  const appType = document.getElementById('app-type').value;
   
   // Show loading state
   submitBtn.disabled = true;
@@ -520,34 +381,15 @@ document.getElementById('waitlist-form').addEventListener('submit', function(e) 
   // Track with Mixpanel
   mixpanel.track('Waitlist Signup', {
     email: email,
-    app_type: appType,
     page: 'landing'
   });
   
-  // Simulate form submission (replace with your actual endpoint)
+  // Simulate form submission
   setTimeout(() => {
     // Hide form, show success
     document.getElementById('waitlist-form').style.display = 'none';
     successMessage.classList.remove('hidden');
-    
-    // Optional: Send to your backend
-    // fetch('/api/waitlist', {
-    //   method: 'POST',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({email, appType})
-    // });
   }, 1500);
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
 });
 </script>
 
