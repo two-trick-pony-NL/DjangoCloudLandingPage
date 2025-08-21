@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cyberpunk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PostFach — The Inbox Zero Email App Inspired by Mailbox by Dropbox</title>
+    <!-- HTML Meta Tags -->
+    <meta name="description" content="PostFach is a community-driven, opinionated mail app designed to keep your inbox clean and focused. Archive, delete, or snooze — nothing more. Join the movement to reclaim email clarity.">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://two-trick-pony-nl.github.io/PostFach/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="PostFach – The indie mail app for 0 inbox heroes.">
+    <meta property="og:description" content="PostFach is a community-driven, opinionated mail app designed to keep your inbox clean and focused. Archive, delete, or snooze — nothing more. Join the movement to reclaim email clarity.">
+    <meta property="og:image" content="https://two-trick-pony-nl.github.io/PostFach/images/large-preview.png">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="two-trick-pony-nl.github.io">
+    <meta property="twitter:url" content="https://two-trick-pony-nl.github.io/PostFach/">
+    <meta name="twitter:title" content="PostFach – The indie mail app for 0 inbox heroes.">
+    <meta name="twitter:description" content="PostFach is a community-driven, opinionated mail app designed to keep your inbox clean and focused. Archive, delete, or snooze — nothing more. Join the movement to reclaim email clarity.">
+    <meta name="twitter:image" content="https://two-trick-pony-nl.github.io/PostFach/images/large-preview.png">
+
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sjwj7yxbwh");
+</script>
+</head>
+<body class="bg-base-100 text-base-content">
+    <!-- Add this inside your HTML <body> -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return; // Ignore clicks on links
+    confetti({
+      particleCount: 30,
+      spread: 60,
+      origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight }
+    });
+  });
+</script>
+
+
+  <!-- Navbar -->
+<header class="navbar bg-base-100 shadow-sm sticky top-0 z-50">
+    <div class="navbar-start">
+      <a class="btn btn-ghost text-xl">📨 PostFach
+ </a>
+    </div>
+    <div class="navbar-end">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlGc3tqjf4MtIciSSADVcswBZewPpnFXbNP8RegwV6vXJmOA/formResponse" class="btn btn-primary">Join the waitlist</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+<section class="hero min-h-screen bg-base-200 py-16 px-6">
+  <div class="hero-content flex-col lg:flex-row max-w-7xl mx-auto gap-12">
+    <div class="flex-1">
+      <h1 class="text-5xl font-bold">📨 PostFach</h1>
+      <h2 class="text-2xl font-bold">Bring Back the Joy of a Clean Inbox. Together.</h2>
+      <p class="py-6 text-lg max-w-xl">
+Remember <b><a href="https://en.wikipedia.org/wiki/Mailbox_(application)">Mailbox</a></b>? We do too!
+PostFach is a community-built reboot for people who <i>actually</i> care about simplicity in email.
+No folders. No bloat. <br><br>Just one mission: <b>Inbox Zero</b>.<br><br>
+
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlGc3tqjf4MtIciSSADVcswBZewPpnFXbNP8RegwV6vXJmOA/formResponse" class="btn btn-primary">Join the waitlist</a>
+    </div>
+
+    <!-- Phone mockup resized -->
+    <div class="flex-1 flex justify-center">
+    <!-- Screenshot 1: Animated Swipe Preview -->
+    <div class="phone-container">
+        <div class="screen">
+            <div class="status-bar">
+                <div class="time">9:44</div>
+                <div class="battery-wifi">
+                    <span>●●●</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                    <span>97%</span>
+                </div>
+            </div>
+            <div class="swipe-preview">
+                <div class="email-header">
+                    <h1>Inbox</h1>
+                    <div class="email-subheader">5 unread messages</div>
+                    <input class="search-bar" placeholder="Search anything..." />
+                </div>
+                
+                <div class="email-item unread">
+                    <div class="unread-dot"></div>
+                    <div class="email-top">
+                        <div class="email-sender">Design Team</div>
+                        <div class="email-time">5 min</div>
+                    </div>
+                    <div class="email-subject">Weekly design review meeting</div>
+                    <div class="email-preview">Hi everyone, this week's design review is scheduled for Friday at 2 PM. Please prepare your latest mockups and prototypes for feedback...</div>
+                </div>
+
+                <div class="animated-swipe-item">
+                    <div class="swipe-background">
+                        <div class="swipe-timer-icon">⏰</div>
+                    </div>
+                    <div class="animated-email-content unread">
+                        <div class="unread-dot"></div>
+                        <div class="email-top">
+                            <div class="email-sender">Amazon</div>
+                            <div class="email-time">1 hour</div>
+                        </div>
+                        <div class="email-subject">Your package has been delivered</div>
+                        <div class="email-preview">Great news! Your order has been delivered to your front door. We hope you enjoy your new MacBook Pro. Rate your delivery experience...</div>
+                    </div>
+                </div>
+
+                <div class="email-item unread">
+                    <div class="unread-dot"></div>
+                    <div class="email-top">
+                        <div class="email-sender">Slack</div>
+                        <div class="email-time">2 hours</div>
+                    </div>
+                    <div class="email-subject">Daily digest for #general</div>
+                    <div class="email-preview">You have 12 new messages in the #general channel. The team discussed the upcoming product launch and shared some exciting updates...</div>
+                </div>
+
+                <div class="email-item">
+                    <div class="email-top">
+                        <div class="email-sender">Bank of America</div>
+                        <div class="email-time">Yesterday</div>
+                    </div>
+                    <div class="email-subject">Monthly statement available</div>
+                    <div class="email-preview">Your monthly statement for account ending in 1234 is now available online. Review your transactions and account balance...</div>
+                </div>
+
+                <div class="email-item unread">
+                    <div class="unread-dot"></div>
+                    <div class="email-top">
+                        <div class="email-sender">YouTube</div>
+                        <div class="email-time">3 hours</div>
+                    </div>
+                    <div class="email-subject">New videos from your subscriptions</div>
+                    <div class="email-preview">TechReview, MinimalismLife, and CookingWithJane uploaded new videos. Don't miss out on the latest content from your favorite creators...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="hero bg-base-200 min-h-screen">
+  <div class="hero-content flex-col lg:flex-row">
+    <!-- Screenshot 3: Swipe Actions with Snooze Modal -->
+    <div class="phone-container">
+        <div class="screen">
+            <div class="status-bar">
+                <div class="time">9:43</div>
+                <div class="battery-wifi">
+                    <span>●●●</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                    <span>98%</span>
+                </div>
+            </div>
+            <div class="swipe-demo">
+                <div class="swipe-container">
+                    <div class="swipe-actions">
+                        <div class="swipe-action snooze">⏰</div>
+                        <div class="swipe-action archive">✅</div>
+                    </div>
+                    
+                    <div class="swipe-email">
+                        <div class="email-top">
+                            <div class="email-sender">Adobe Creative Cloud</div>
+                            <div class="email-time">5 min</div>
+                        </div>
+                        <div class="email-subject">Your monthly design inspiration</div>
+                        <div class="email-preview">Discover the latest design trends and creative resources to inspire your next project. This month features minimalist layouts and bold typography...</div>
+                    </div>
+                    
+                    <div class="remaining-emails">
+                        <div class="email-item">
+                            <div class="email-top">
+                                <div class="email-sender">Spotify</div>
+                                <div class="email-time">1 hour</div>
+                            </div>
+                            <div class="email-subject">Your Discover Weekly is ready</div>
+                            <div class="email-preview">30 new songs picked just for you based on your listening habits...</div>
+                        </div>
+                        
+                        <div class="email-item">
+                            <div class="email-top">
+                                <div class="email-sender">Medium</div>
+                                <div class="email-time">2 hours</div>
+                            </div>
+                            <div class="email-subject">5 articles you might have missed</div>
+                            <div class="email-preview">Here are some trending stories from writers you follow...</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="snooze-modal">
+                    <div class="snooze-content">
+                        <div class="snooze-title">Snooze until...</div>
+                        <div class="snooze-grid">
+                            <div class="snooze-option selected">Later today</div>
+                            <div class="snooze-option">Tomorrow morning</div>
+                            <div class="snooze-option">Monday morning</div>
+                            <div class="snooze-option">Next week</div>
+                            <div class="snooze-option">Some day</div>
+                            <div class="snooze-option">Pick a date</div>
+                        </div>
+                        <button class="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+      <h1 class="text-5xl font-bold">Archive, delete, or snooze</h1>
+      <p class="py-6 max-w-md">
+No fluff. Every email gets a fate — you’re either done, done-for-now, or done forever. <br><br>Snoozing lets you punt things to the future with intention — super convenient when those airplane tickets are a month out. <br><br>It’s not about ignoring mail, it’s about <b>respecting your focus</b>. Your inbox isn’t a museum — keep it moving.
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlGc3tqjf4MtIciSSADVcswBZewPpnFXbNP8RegwV6vXJmOA/formResponse" class="btn btn-primary">Join the waitlist and start deciding your inbox’s fate.
+</a>
+
+    </div>
+  </div>
+</div>
+
+<div class="hero bg-base-200 min-h-screen">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+<!-- Screenshot 1: Attachments View -->
+    <div class="phone-container">
+        <div class="screen">
+            <div class="status-bar">
+                <div class="time">9:41</div>
+                <div class="battery-wifi">
+                    <span>●●●</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                    <span>100%</span>
+                </div>
+            </div>
+            <div class="attachments-view">
+                <div class="attachments-header">
+                    <h1>All Attachments</h1>
+                    <div class="attachments-subheader">2,847 files from your email history</div>
+                </div>
+                <input class="search-bar" placeholder="Search for any Attachment, photos, documents..." />
+                
+                <div class="attachment-grid">
+                    <div class="attachment-item">
+                        <div class="attachment-icon pdf">📄</div>
+                        <div class="attachment-name">Q4_Report_Final.pdf</div>
+                        <div class="attachment-meta">
+                            <span>2.3 MB</span>
+                            <span>2 days ago</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attachment-item">
+                        <div class="attachment-icon image">🖼️</div>
+                        <div class="attachment-name">vacation_beach.jpg</div>
+                        <div class="attachment-meta">
+                            <span>4.1 MB</span>
+                            <span>1 week ago</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attachment-item">
+                        <div class="attachment-icon doc">📝</div>
+                        <div class="attachment-name">contract_signed.docx</div>
+                        <div class="attachment-meta">
+                            <span>1.2 MB</span>
+                            <span>3 days ago</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attachment-item">
+                        <div class="attachment-icon video">🎬</div>
+                        <div class="attachment-name">demo_presentation.mp4</div>
+                        <div class="attachment-meta">
+                            <span>45.2 MB</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attachment-item">
+                        <div class="attachment-icon zip">🗜️</div>
+                        <div class="attachment-name">project_files.zip</div>
+                        <div class="attachment-meta">
+                            <span>12.8 MB</span>
+                            <span>5 days ago</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attachment-item">
+                        <div class="attachment-icon image">📸</div>
+                        <div class="attachment-name">receipt_dinner.png</div>
+                        <div class="attachment-meta">
+                            <span>892 KB</span>
+                            <span>Yesterday</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attachment-item">
+                        <div class="attachment-icon audio">🎵</div>
+                        <div class="attachment-name">meeting_recording.m4a</div>
+                        <div class="attachment-meta">
+                            <span>15.4 MB</span>
+                            <span>1 week ago</span>
+                        </div>
+                    </div>
+                    
+                    <div class="attachment-item">
+                        <div class="attachment-icon pdf">📋</div>
+                        <div class="attachment-name">invoice_march.pdf</div>
+                        <div class="attachment-meta">
+                            <span>234 KB</span>
+                            <span>2 weeks ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+      <h1 class="text-5xl font-bold">All your Attachments. <br>None of the digging.</h1>
+
+            <p class="py-6 max-w-md">
+
+Why the hell have we spent 30 years digging through email threads to find a damn PDF? <br><br>PostFach just shows you your attachments — straight up, like a folder. Last 30 days, newest first. No guessing subject lines, no opening emails, no thinking. It’s what email should’ve done all along - oh and if you still can't find your attachment, our search is second to none.
+
+
+
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlGc3tqjf4MtIciSSADVcswBZewPpnFXbNP8RegwV6vXJmOA/formResponse" class="btn btn-primary">Get early access to the attachment stream that changes everything.</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero bg-base-200 min-h-screen">
+  <div class="hero-content flex-col lg:flex-row">
+<!-- Screenshot 2: Person-specific Email Thread -->
+    <div class="phone-container">
+        <div class="screen">
+            <div class="status-bar">
+                <div class="time">9:45</div>
+                <div class="battery-wifi">
+                    <span>●●●</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                    <span>96%</span>
+                </div>
+            </div>
+            <div class="person-thread">
+                <div class="person-header">
+                    <div class="person-avatar">JM</div>
+                    <div class="person-name">Jessica Martinez</div>
+                    <div class="person-stats">47 emails over 8 months</div>
+                    <div class="timeline-indicator">Timeline View</div>
+                </div>
+                
+                <div class="thread-container">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="thread-email">
+                        <div class="timeline-dot recent"></div>
+                        <div class="thread-date">Today</div>
+                        <div class="thread-subject">Final approval needed for launch</div>
+                        <div class="thread-preview">The marketing materials look fantastic! I've reviewed everything and we're ready to proceed with the launch. Just need your final sign-off on the pricing strategy we discussed last week.</div>
+                        <div class="thread-meta">
+                            <div class="thread-time">2:30 PM</div>
+                            <div class="thread-attachment">📎 pricing_final.pdf</div>
+                        </div>
+                    </div>
+                    
+                    <div class="thread-email">
+                        <div class="timeline-dot recent"></div>
+                        <div class="thread-date">Yesterday</div>
+                        <div class="thread-subject">Marketing campaign feedback</div>
+                        <div class="thread-preview">I love the creative direction we're taking! The visual identity is spot on and really captures our brand essence. A few minor suggestions: could we make the CTA button more prominent and maybe adjust the color palette slightly?</div>
+                        <div class="thread-meta">
+                            <div class="thread-time">4:15 PM</div>
+                            <div class="thread-attachment">📎 campaign_mockups.zip</div>
+                        </div>
+                    </div>
+                    
+                    <div class="thread-email">
+                        <div class="timeline-dot"></div>
+                        <div class="thread-date">Last Week</div>
+                        <div class="thread-subject">Budget allocation for Q1</div>
+                        <div class="thread-preview">After reviewing the quarterly projections, I think we should allocate more budget to digital marketing. The ROI has been consistently strong and we're seeing great traction in the 25-34 demographic.</div>
+                        <div class="thread-meta">
+                            <div class="thread-time">Mon 10:22 AM</div>
+                            <div class="thread-attachment"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="thread-email">
+                        <div class="timeline-dot"></div>
+                        <div class="thread-date">2 Weeks Ago</div>
+                        <div class="thread-subject">Team meeting notes and action items</div>
+                        <div class="thread-preview">Thanks for leading such a productive meeting today. I've compiled all the action items and next steps. The timeline looks aggressive but achievable if we stay focused on our priorities.</div>
+                        <div class="thread-meta">
+                            <div class="thread-time">Fri 1:45 PM</div>
+                            <div class="thread-attachment">📎 meeting_notes.docx</div>
+                        </div>
+                    </div>
+                    
+                    <div class="thread-email">
+                        <div class="timeline-dot old"></div>
+                        <div class="thread-date">Last Month</div>
+                        <div class="thread-subject">Welcome to the marketing team!</div>
+                        <div class="thread-preview">Welcome aboard! I'm excited to have you join our marketing team. You'll be working closely with the design and product teams to launch our biggest campaign yet. Let me know if you have any questions as you get settled in.</div>
+                        <div class="thread-meta">
+                            <div class="thread-time">Dec 15, 9:30 AM</div>
+                            <div class="thread-attachment">📎 onboarding_guide.pdf</div>
+                        </div>
+                    </div>
+
+                    <div class="thread-email">
+                        <div class="timeline-dot old"></div>
+                        <div class="thread-date">3 Months Ago</div>
+                        <div class="thread-subject">Project kickoff discussion</div>
+                        <div class="thread-preview">Great to connect! I'm looking forward to collaborating on this exciting new project. The initial concepts look promising and I think we can create something really impactful together.</div>
+                        <div class="thread-meta">
+                            <div class="thread-time">Oct 8, 11:15 AM</div>
+                            <div class="thread-attachment"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+      <h1 class="text-5xl font-bold">Email is with people. Not threads.</h1>
+            <p class="py-6 max-w-md">
+        Threads break. Subjects change. People get added (and removed). But your connection with a person stays the same. <br><br>PostFach shows every email you’ve ever sent or received from one person — in one clear, chronological timeline. No confusing threads, no endless searching through subject lines. Just a simple, honest view of your conversation history. <br><br> Finally, email that works the way relationships do.
+
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlGc3tqjf4MtIciSSADVcswBZewPpnFXbNP8RegwV6vXJmOA/formResponse" class="btn btn-primary">Sign up now to try the timeline that finally gets people, not threads.</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero bg-base-200 min-h-screen">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <!-- Screenshot 4: Inbox Zero Leaderboard -->
+    <div class="phone-container">
+        <div class="screen">
+            <div class="status-bar">
+                <div class="time">9:44</div>
+                <div class="battery-wifi">
+                    <span>●●●</span>
+                    <span>📶</span>
+                    <span>🔋</span>
+                    <span>97%</span>
+                </div>
+            </div>
+            <div class="leaderboard-view">
+                <div class="confetti">
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                    <div class="confetti-piece"></div>
+                </div>
+                
+                <div class="leaderboard-header">
+                    <div class="trophy-icon">🏆</div>
+                    <div class="leaderboard-title">Inbox Zero!</div>
+                    <div class="leaderboard-subtitle">You've mastered email productivity</div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="personal-stats">
+                        <div class="stat-row">
+                            <div class="stat-label">
+                                <span>🔥</span>
+                                <span>Current Streak</span>
+                            </div>
+                            <div class="stat-value streak-value">47 days</div>
+                        </div>
+                        
+                        <div class="stat-row">
+                            <div class="stat-label">
+                                <span>⚡</span>
+                                <span>Avg. Clear Time</span>
+                            </div>
+                            <div class="stat-value speed-value">2.3 min</div>
+                        </div>
+                        
+                        <div class="stat-row">
+                            <div class="stat-label">
+                                <span>🎯</span>
+                                <span>Global Rank</span>
+                            </div>
+                            <div class="stat-value rank-value">#127</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <span>🏅</span>
+                    <span>Top Performers</span>
+                </div>
+
+                <div class="leaderboard-list">
+                    <div class="leaderboard-item">
+                        <div class="rank-number rank-1">1</div>
+                        <div class="user-info">
+                            <div class="user-name">ZenMaster_Sarah</div>
+                            <div class="user-streak">284 day streak • 0.8 min avg</div>
+                        </div>
+                        <div class="user-score">12,847</div>
+                    </div>
+
+                    <div class="leaderboard-item">
+                        <div class="rank-number rank-2">2</div>
+                        <div class="user-info">
+                            <div class="user-name">ProductivityNinja</div>
+                            <div class="user-streak">201 day streak • 1.2 min avg</div>
+                        </div>
+                        <div class="user-score">10,203</div>
+                    </div>
+
+                    <div class="leaderboard-item">
+                        <div class="rank-number rank-3">3</div>
+                        <div class="user-info">
+                            <div class="user-name">InboxWarrior_Mike</div>
+                            <div class="user-streak">156 day streak • 1.5 min avg</div>
+                        </div>
+                        <div class="user-score">8,932</div>
+                    </div>
+
+                    <div class="leaderboard-item">
+                        <div class="rank-number rank-other">4</div>
+                        <div class="user-info">
+                            <div class="user-name">EmailJedi_Alex</div>
+                            <div class="user-streak">143 day streak • 1.7 min avg</div>
+                        </div>
+                        <div class="user-score">7,621</div>
+                    </div>
+
+                    <div class="leaderboard-item current-user">
+                        <div class="rank-number rank-other">127</div>
+                        <div class="user-info">
+                            <div class="user-name">You</div>
+                            <div class="user-streak">47 day streak • 2.3 min avg</div>
+                        </div>
+                        <div class="user-score">2,847</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+      <h1 class="text-5xl font-bold">Own your inbox. Own the leaderboard.</h1>
+    <p class="py-6 max-w-md">
+Why settle for chaos when you can compete? Track how clean your inbox stays compared to the rest of the community.<br><br>Stay sharp, stay ruthless, and show everyone who’s boss. Because inbox zero isn’t just a goal — it’s a lifestyle.
+
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlGc3tqjf4MtIciSSADVcswBZewPpnFXbNP8RegwV6vXJmOA/formResponse" class="btn btn-primary">Join the waitlist and prove you’re an inbox legend.</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero bg-base-200 min-h-screen">
+  <div class="hero-content flex-col lg:flex-row">
+    <img
+      src="images/Mailbox_screenshot.jpg"
+      alt="Mailbox app screenshot"
+      class="max-w-sm rounded-lg shadow-2xl"
+    />
+    <div>
+      <h1 class="text-5xl font-bold mb-8">Mailbox History: The Email App We All Miss</h1>
+        <h2 class="text-2xl font-bold">Why Was Mailbox revolutionary?</h2>
+
+      <p class="py-4 max-w-md">
+        Mailbox was a revolutionary email app launched in 2013, known for swipe-based sorting, snoozing, and inbox zero focus. It quickly became a hit, with over 380,000 pre-registrations before launch and millions of downloads after.
+      </p>
+   <h2 class="text-2xl font-bold">How Did Dropbox Get Involved?</h2>
+    <p class="py-4 max-w-md">
+    Just weeks after launch, Dropbox acquired the team for $100 million, accelerating Mailbox’s rollout to Android and Mac. However, in 2016, Dropbox decided to kill Mailbox despite its loyal user base, leaving many wondering why such a beloved app was discontinued. They shifted focus to broader workflow tools instead.
+    </p>
+      <h2 class="text-2xl font-bold">Other Apps with Swipe & Gesture Features</h2>
+        <p class="py-4 max-w-md">
+        Since Mailbox, several email apps have adopted swipe-based controls to simplify managing your inbox. Apps like <strong>Google Inbox</strong> (now discontinued), <strong>Spark</strong>, <strong>Airmail</strong>, <strong>Newton Mail</strong>, and <strong>Edison Mail</strong> all use swipe gestures for archiving, snoozing, and quick actions — but many have added layers of complexity or subscription models that stray from Mailbox’s simple, free approach.
+        </p>
+    <h2 class="text-2xl font-bold">Introducing PostFach: The Inbox Zero Reboot for 2025</h2>
+      <p class="py-4 max-w-md">
+        Inspired by that, I’m building <strong>PostFach</strong> — a fresh, privacy-first reboot for 2025 that brings back the joy of managing email simply and effectively.
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlGc3tqjf4MtIciSSADVcswBZewPpnFXbNP8RegwV6vXJmOA/formResponse" class="btn btn-primary">
+        Join the waitlist and help bring it back to life
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<section class="bg-base-100 py-16 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-8">The 10 PostFach Promises — From Me to You</h2>
+    <ul class="grid gap-6 sm:grid-cols-2 text-left">
+      <li class="card bg-base-200 p-6 shadow rounded">
+        <h3 class="font-semibold mb-2">1. PostFach is build by a Human</h3>
+        <p>Hi, I'm Peter, great to meet you! Just to let you know: I'm not some major corporation. I’m just a guy up his attic building something I love using every day. You may know me from <a href="https://voicemate.nl/link/postfach">Voice Mate - the AI Voicemail app</a></p>
+      </li>
+    <li class="card bg-base-200 p-6 shadow rounded">
+    <h3 class="font-semibold mb-2">2. No subscriptions. One-time purchase. Forever yours.</h3>
+      <p>I hate subscriptions too. This is my app, and once you buy it, it’s all yours—no strings attached.</p>
+    </li>
+      <li class="card bg-base-200 p-6 shadow rounded">
+        <h3 class="font-semibold mb-2">3. Your inbox stays yours. No data collection, no selling.</h3>
+        <p>I don’t peek or share — what’s in your inbox is just between you and your mail.</p>
+      </li>
+      <li class="card bg-base-200 p-6 shadow rounded">
+        <h3 class="font-semibold mb-2">4. No ads — just focus</h3>
+        <p>Email’s for getting things done, not for bombarding you with ads or distractions.</p>
+      </li>
+      <li class="card bg-base-200 p-6 shadow rounded">
+        <h3 class="font-semibold mb-2">5. No venture capital — just passion</h3>
+        <p>This isn’t about growth at any cost. It’s a labor of love, funded by people who care.</p>
+      </li>
+    <li class="card bg-base-200 p-6 shadow rounded">
+    <h3 class="font-semibold mb-2">6. I'll be honest when I need your help</h3>
+    <p>If funds run low, I’ll ask for your support openly — no paywalls, no ads, just a straightforward ask. If it works for Wikipedia, it will work for me.</p>
+    </li>
+
+      <li class="card bg-base-200 p-6 shadow rounded">
+        <h3 class="font-semibold mb-2">7No AI spying on your emails</h3>
+        <p>Your emails aren’t data for AI experiments. I don’t scan or analyze them. If this is a feature you like then I'll be the first to recommend using SuperHuman</p>
+      </li>
+      <li class="card bg-base-200 p-6 shadow rounded">
+        <h3 class="font-semibold mb-2">8. Simple by design</h3>
+        <p>PostFach focuses on doing a few things really well — no overcomplicated features to slow you down.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- Features Section -->
+<section class="py-20 px-6 bg-base-100">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-10">How does PostFach compare to popular mail clients?</h2>
+
+    <div class="overflow-x-auto">
+      <table class="table table-zebra w-full text-left">
+        <thead>
+          <tr>
+            <th>Mail Client</th>
+            <th>Inbox Zero Design</th>
+            <th>Privacy-First</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PostFach</strong></td>
+            <td>✅ Yes</td>
+            <td>✅ Yes</td>
+            <td>✅ One Time</td>
+          </tr>
+          <tr>
+            <td>Hey.com</td>
+            <td>✅ Yes</td>
+            <td>✅ Yes</td>
+            <td>❌ $99/year</td>
+          </tr>
+         <tr>
+            <td>Canary Mail</td>
+            <td>✅ Yes</td>
+            <td>✅ Encrypted</td>
+            <td>❌ $49.99</td>
+          </tr>
+          <tr>
+            <td>Spark</td>
+            <td>✅ Partial</td>
+            <td>❌ Cloud-based</td>
+            <td>❌ $7/user/mo (Teams)</td>
+          </tr>
+          <tr>
+            <td>Superhuman</td>
+            <td>✅ Yes</td>
+            <td>❌ Data analytics</td>
+            <td>❌ $30/month</td>
+          </tr>
+         <tr>
+            <td>Polymail</td>
+            <td>✅ Yes</td>
+            <td>❌ Email tracking by default</td>
+            <td>❌ $13/month</td>
+          </tr>
+          <tr>
+            <td>Airmail</td>
+            <td>✅ Yes</td>
+            <td>❌ Some data collection</td>
+            <td>❌ Subscription or one-time + monthly</td>
+          </tr>
+                   <tr>
+            <td>Thunderbird</td>
+            <td>❌ Traditional UX</td>
+            <td>✅ Open Source</td>
+            <td>✅ Free</td>
+          </tr>
+          <tr>
+            <td>Mailbird</td>
+            <td>❌ Inbox Zero not core</td>
+            <td>❌ Analytics & ads</td>
+            <td>✅ One-time or $2.99/month</td>
+          </tr>
+
+        <tr>
+            <td>Outlook</td>
+            <td>❌ Traditional</td>
+            <td>❌ Microsoft</td>
+            <td>❌ $69.99/year</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br><br>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlGc3tqjf4MtIciSSADVcswBZewPpnFXbNP8RegwV6vXJmOA/formResponse" class="btn btn-primary">
+      Join the waitlist and experience inbox zero, again
+    </a>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+<footer class="footer footer-horizontal footer-center bg-primary text-primary-content p-10">
+  <aside>
+    
+    <p class="font-bold">
+      <h1 class="text-5xl font-bold">📨 PostFach</h1>
+      <br />
+      Is a Two Trick Pony Enterprise
+    </p>
+    <p>Copyright © 2025 - All right reserved</p>
+  </aside>
+  <nav>
+    <div class="grid grid-flow-col gap-4">
+      <!--<a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="fill-current">
+          <path
+            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+        </svg>
+      </a>
+      <a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="fill-current">
+          <path
+            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+        </svg>
+      </a>
+      <a>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          class="fill-current">
+          <path
+            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+        </svg>
+      </a>-->
+    </div>
+  </nav>
+</footer>
+
+</body>
+</html>
