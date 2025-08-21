@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
+<html lang="en" data-theme="emerald">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -382,27 +382,35 @@ document.getElementById('waitlist-form').addEventListener('submit', function(e) 
   const submitText = document.getElementById('submit-text');
   const loading = document.getElementById('loading');
   const successMessage = document.getElementById('success-message');
-  const email = document.getElementById('email').value;
+  const email = document.getElementById('email').value.trim();
   
+  if (!email) return;
+
   // Show loading state
   submitBtn.disabled = true;
   submitText.classList.add('hidden');
   loading.classList.remove('hidden');
   
-  // Track with Mixpanel
+  // Identify user in Mixpanel and save email
+  mixpanel.identify(email);
+  mixpanel.people.set({
+    $email: email,
+    page: 'landing'
+  });
+
+  // Track the signup event
   mixpanel.track('Waitlist Signup', {
-    email: email,
     page: 'landing'
   });
   
   // Simulate form submission
   setTimeout(() => {
-    // Hide form, show success
     document.getElementById('waitlist-form').style.display = 'none';
     successMessage.classList.remove('hidden');
   }, 1500);
 });
 </script>
+
 
 </body>
 </html>
